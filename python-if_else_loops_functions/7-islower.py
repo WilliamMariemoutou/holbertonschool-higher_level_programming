@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 def islower(c):
+    if type(c) != str or len(c) != 1:
+        print("Error: input must be a single character")
+        raise TypeError
     if ord('a') <= ord(c) <= ord('z'):
         return True
     else:
