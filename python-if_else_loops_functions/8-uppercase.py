@@ -3,8 +3,10 @@
 def uppercase(str):
     for char in str:
         if 'a' <= char <= 'z':
-            print(chr(ord(char) - (ord('a') - ord('A'))), end="")
+            result += (chr(ord(char) - (ord('a') - ord('A'))), end="")
         else:
-            print(char, end="")
+            result += char
+            
+    print(result)
     print()
         
