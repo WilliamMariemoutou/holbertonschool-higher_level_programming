@@ -9,7 +9,7 @@ def main():
     if num_arguments == 0:
         print("0 arguments.")
     else:
-        print("{} argument{}".format(num_arguments, "s" if num_arguments > 1 else ""))
+        print("{} argument{}:".format(num_arguments, "s" if num_arguments > 1 else ""))
         for i, arg in enumerate(arguments, 1):
             print("{}: {}".format(i, arg))
             
