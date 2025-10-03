@@ -10,10 +10,10 @@ def main():
         print("0 arguments.")
     else:
         print("{} argument{}:".format(num_arguments,
-            "s" if num_arguments > 1 else ""))
+                    "s" if num_arguments > 1 else ""))
         for i, arg in enumerate(arguments, 1):
             print("{}: {}".format(i, arg))
 
-            
+        
 if __name__ == "__main__":
     main()
