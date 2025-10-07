@@ -4,6 +4,7 @@ def no_c(my_string):
     new_list = []
     
     for item in my_string:
-        new_list.append(item.replace(letter))
-        
-        print(new_list)
+        if item != letter and item != letter.upper():
+            new_list += item
+            
+    return new_list
