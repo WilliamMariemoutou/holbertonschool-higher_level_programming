@@ -3,10 +3,7 @@ def no_c(my_string):
     letter = "c"
     new_list = []
     
-    for s in my_string:
-        new_s = ""
-        for char in s:
-            if char != letter:
-                new_s += char
-        new_list.append(new_s)
+    for i in my_string:
+            if s != letter:
+                new_s += i
     print(new_list)
