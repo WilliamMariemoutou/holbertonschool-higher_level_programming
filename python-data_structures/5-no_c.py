@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/python3
 def no_c(my_string):
     letter = "c"
     new_list = []
