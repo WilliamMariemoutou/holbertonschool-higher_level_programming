@@ -1,2 +1,3 @@
 #!/usr/bin/python3
-Square = type("Square", (), {})
+class Square:
+    pass
