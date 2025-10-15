@@ -11,13 +11,15 @@ class Square:
         """
         if not isinstance(size, int):
             raise TypeError
+        """TypeError: if size is not an integer
+        """
 
         if size < 0:
             raise ValueError("size must be >= 0")
-        """
-        TypeError: if size is not an integer
+        """"
         ValueError: if size is less than 0
         """
 
         self.__size = size
-        """the size of the square, must not be negative"""
+        """the size of the square, must not be negative
+        """
