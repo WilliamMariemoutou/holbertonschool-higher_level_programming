@@ -67,8 +67,3 @@ class Rectangle:
         """if width or height is 0, print an empty string"""
         return "\n".join(["#" * self.__width] * self.__height)
     """prints the rectangle"""
-
-    def __repr__(self):
-        """return a string representation of the rectangle """
-        return "Rectangle({}, {})".format(self.__width, self.__height)
-    """returns the representation of the rectangle"""
