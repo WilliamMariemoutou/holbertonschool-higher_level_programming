@@ -5,4 +5,6 @@
 class Rectangle:
     """the class rectangle"""
     pass
+
+
 """the class is empty"""
