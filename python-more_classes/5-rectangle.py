@@ -72,3 +72,4 @@ class Rectangle:
     """returns the representation of the rectangle"""
     def __delete__(self):
         print("Bye rectangle...")
+        """prints a message when the rectangle is deleted"""
