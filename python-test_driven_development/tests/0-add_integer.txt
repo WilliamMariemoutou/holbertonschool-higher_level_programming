@@ -1,4 +1,4 @@
->>> from mymodule import add_integer
+__import__('0-add_integer')
 >>> add_integer(1, 2)
 3
 >>> add_integer(100, -2)
