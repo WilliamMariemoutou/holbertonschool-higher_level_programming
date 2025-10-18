@@ -6,9 +6,11 @@ The function takes two arguments, adds them, and returns the result.
 It handles integers and floats, casting floats to integers.
 """
 
+
 def add_integer(a, b=98):
     """
-    Adds two integers (or floats). If any input is a float, it is cast to an integer.
+    Adds two values. If any input is a float, it is
+    changed to an integer.
 
     Arguments:
     a -- First number (int or float)
