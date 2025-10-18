@@ -3,6 +3,7 @@
 This module defines a function that prints a square with the character '#'.
 """
 
+
 def print_square(size):
     """
     Prints a square with the character '#' of size `size`.
@@ -14,7 +15,7 @@ def print_square(size):
         TypeError: If `size` is not an integer or if it is a float less than 0.
         ValueError: If `size` is less than 0.
     """
-    
+
     if not isinstance(size, int):
         raise TypeError("size must be an integer")
     if size < 0:
