@@ -1,11 +1,3 @@
-#!/usr/bin/python3
-"""
-This module has a function say_my_name that prints a person's full name.
-
-The function checks if the names are strings, TypeError if they are not.
-"""
-
-
 def say_my_name(first_name, last_name=""):
     """
     Prints "My name is <first_name> <last_name>".
@@ -23,4 +15,8 @@ def say_my_name(first_name, last_name=""):
     if not isinstance(last_name, str):
         raise TypeError("last_name must be a string")
 
-    print("My name is {} {}".format(first_name, last_name))
+    # Check if last_name is empty, and adjust formatting accordingly
+    if last_name:
+        print("My name is {} {}".format(first_name, last_name))
+    else:
+        print("My name is {}".format(first_name))
