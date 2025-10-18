@@ -16,10 +16,14 @@ def text_indentation(text):
     i = 0
     while i < len(text):
         if text[i] in ['.', '?', ':']:
+            """checks if we see the required symbols"""
             print(text[i], end="\n\n")
             i += 1
+            """prints the character with a newline"""
             while i < len(text) and text[i] == ' ':
                 i += 1
+                """ignore spaces afther the symbol"""
         else:
             print(text[i], end="")
             i += 1
+            """prints current character"""
