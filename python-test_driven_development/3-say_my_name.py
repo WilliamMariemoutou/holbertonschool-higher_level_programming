@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Creates a class which writes a name and surname"""
 def say_my_name(first_name, last_name=""):
     """
     Prints "My name is <first_name> <last_name>".
