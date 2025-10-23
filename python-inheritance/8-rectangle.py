@@ -1,4 +1,4 @@
-#!/bin/usr/python3
+#!/usr/bin/python3
 class BaseGeometry:
     """the class with are and integer_validation"""
 
