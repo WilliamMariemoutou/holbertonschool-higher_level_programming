@@ -42,15 +42,18 @@ class Rectangle(BaseGeometry):
         """Shows the string representation of the rectangle
         Returns a string with the format [Rectangle] <width>/<height>"""
         return f"[Rectangle] {self.__width}/{self.__height}"
-    
+
+    """the class square"""
+
+
 class Square(Rectangle):
+    """the class inherits from rectangle"""
     def __init__(self, size):
         self.integer_validator("size", size)
-        
+        """validates size"""
+
         super().__init__(size, size)
-        
-    def __str__(self):
-        return f"[Rectangle] {self._Rectangle__width}/{self._Rectangle__height}"
-        
+
     def area(self):
+        """returns the area of the square"""
         return self._Rectangle__width ** 2
