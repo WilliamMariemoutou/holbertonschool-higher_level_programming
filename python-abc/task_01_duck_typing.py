@@ -40,7 +40,7 @@ class Rectangle(Shape):
         return 2 * (self.width + self.height)
 
 
-def shape_info(shape):
+def shape_info(thing):
     """shape_info duck typing"""
-    print("Area: ", shape.area())
-    print("Perimeter: ", shape.perimeter())
+    print("Area: ", thing.area())
+    print("Perimeter: ", thing.perimeter())
