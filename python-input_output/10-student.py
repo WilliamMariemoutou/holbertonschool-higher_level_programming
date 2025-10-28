@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-#!/usr/bin/python3
 """creates a class student"""
 
 
@@ -17,11 +16,11 @@ class Student:
         if attrs is a list of string, retrieves the attributes name
         else returns all attributes
         """
-        if isinstance(attrs, list) and all(type(a) == str for a in attrs):
+        if isinstance(attrs, list):
             result = {}
             for key in attrs:
-                if hasattr(self, key):
+                if isinstance(key, str) and hasattr(self, key):
                     result[key] = getattr(self, key)
             return result
-        
+
         return self.__dict__
