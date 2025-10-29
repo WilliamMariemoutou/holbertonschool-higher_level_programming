@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""functions to serialize a Python dictionary
+"""
+functions to serialize a Python dictionary
 into a JSON file and back into a dictionary
 """
 
@@ -15,7 +16,7 @@ def serialize_and_save_to_file(data, filename):
         """returns the serialized file"""
 
 
-def load_and_deserialze(filename):
+def load_and_deserialize(filename):
     """load and deserialize Json file into  python dictionary"""
     with open(filename, 'r', encoding='utf-8') as f:
         data = json.load(f)
