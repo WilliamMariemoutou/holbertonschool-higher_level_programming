@@ -11,9 +11,9 @@ class CustomObject:
         """initializes the class with the given attributes"""
         self.name = name
         self.age = age
-        self.is_studemt = is_student
+        self.is_student = is_student
 
-    def diplay(self):
+    def display(self):
         """display the attributes required"""
         print(f"Name: {self.name}")
         print(f"Age: {self.age}")
