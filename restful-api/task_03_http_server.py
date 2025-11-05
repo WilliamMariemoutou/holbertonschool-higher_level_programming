@@ -3,6 +3,7 @@
 import http.server
 import json
 
+
 class MyRequestHandler(http.server.BaseHTTPRequestHandler):
 
     def do_GET(self):
@@ -55,11 +56,13 @@ class MyRequestHandler(http.server.BaseHTTPRequestHandler):
         error_message = {"error": "Endpoint not found"}
         self.wfile.write(json.dumps(error_message).encode('utf-8'))
 
+
 def run(server_class=http.server.HTTPServer, handler_class=MyRequestHandler):
     server_address = ('', 8000)
     httpd = server_class(server_address, handler_class)
     print("Starting server on http://localhost:8000...")
     httpd.serve_forever()
+
 
 if __name__ == '__main__':
     run()
