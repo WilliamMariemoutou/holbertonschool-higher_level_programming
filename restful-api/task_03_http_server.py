@@ -32,7 +32,7 @@ class MyRequestHandler(http.server.BaseHTTPRequestHandler):
         self.wfile.write(json.dumps(data).encode('utf-8'))
 
     def handle_status(self):
-        status = {b"OK"}
+        status = {"status": "OK"}
         self.send_response(200)
         self.send_header('Content-type', 'application/json')
         self.end_headers()
@@ -53,7 +53,7 @@ class MyRequestHandler(http.server.BaseHTTPRequestHandler):
         self.send_response(404)
         self.send_header('Content-type', 'application/json')
         self.end_headers()
-        error_message = {404, "Endpoint not found"}
+        error_message = {"error": "Endpoint not found"}
         self.wfile.write(json.dumps(error_message).encode('utf-8'))
 
 
