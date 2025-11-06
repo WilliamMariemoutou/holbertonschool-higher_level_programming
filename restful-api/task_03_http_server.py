@@ -14,7 +14,7 @@ class MyRequestHandler(http.server.BaseHTTPRequestHandler):
         elif self.path == '/status':
             self.handle_status()
         elif self.path == '/info':
-            self.handle_info()  # Add this to handle the /info endpoint
+            self.handle_info()
         else:
             self.handle_404()
 
@@ -32,14 +32,14 @@ class MyRequestHandler(http.server.BaseHTTPRequestHandler):
         self.wfile.write(json.dumps(data).encode('utf-8'))
 
     def handle_status(self):
-        status = {"status": "OK"}
+        status = {b"OK"}
         self.send_response(200)
         self.send_header('Content-type', 'application/json')
         self.end_headers()
         self.wfile.write(json.dumps(status).encode('utf-8'))
 
     def handle_info(self):
-        # Add the /info endpoint to return version and description
+
         info = {
             "version": "1.0",
             "description": "A simple API built with http.server"
@@ -50,10 +50,10 @@ class MyRequestHandler(http.server.BaseHTTPRequestHandler):
         self.wfile.write(json.dumps(info).encode('utf-8'))
 
     def handle_404(self):
-        self.send_response(404)  # Return 404 for undefined paths
+        self.send_response(404)
         self.send_header('Content-type', 'application/json')
         self.end_headers()
-        error_message = {"error": "Endpoint not found"}
+        error_message = {404, "Endpoint not found"}
         self.wfile.write(json.dumps(error_message).encode('utf-8'))
 
 
