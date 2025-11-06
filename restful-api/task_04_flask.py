@@ -48,6 +48,7 @@ def get_user(username):
 
 
 @app.route("/add.user", methods=["POST"])
+@app.route("/add_user/", methods=["POST"])
 def add_user():
     try:
         data = request.get_json()
