@@ -32,7 +32,7 @@ class MyRequestHandler(http.server.BaseHTTPRequestHandler):
         self.wfile.write(json.dumps(data).encode('utf-8'))
 
     def handle_status(self):
-        status = {"status": "OK"}
+        status = {"OK"}
         self.send_response(200)
         self.send_header('Content-type', 'application/json')
         self.end_headers()
