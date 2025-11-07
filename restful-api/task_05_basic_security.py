@@ -1,10 +1,9 @@
-#/usr/bin/python3
+#!/usr/bin/python3
 
 from flask import Flask, jsonify, request
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_httpauth import HTTPBasicAuth
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
-import pytest
 
 app = Flask(__name__)
 
@@ -72,22 +71,6 @@ def handle_revoked_token_error(err):
 @jwt.needs_fresh_token_loader
 def handle_needs_fresh_token_error(err):
     return jsonify({"error": "Fresh token required"}), 401
-
-# Test for Basic Authentication
-@pytest.fixture
-def client():
-    with app.test_client() as client:
-        yield client
-
-def test_basic_auth_valid_credentials(client):
-    response = client.get('/basic-protected', auth=('user1', 'password'))
-    assert response.status_code == 200
-    assert b"Basic Auth: Access Granted" in response.data
-
-def test_basic_auth_invalid_credentials(client):
-    response = client.get('/basic-protected', auth=('user1', 'wrongpassword'))
-    assert response.status_code == 401
-    assert b"Unauthorized" in response.data
 
 if __name__ == '__main__':
     app.run(debug=True)
