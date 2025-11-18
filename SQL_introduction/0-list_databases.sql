@@ -1,3 +1,3 @@
-"""Command to show all databases in my SQL server"""
+-- Command to show all databases in my SQL server
 
 SHOW databases;
