@@ -1,4 +1,4 @@
 -- Shows thhe average of all scores
 
-SELECT ACG(score) AS average
+SELECT AVG(score) AS average
 FROM second_table;
