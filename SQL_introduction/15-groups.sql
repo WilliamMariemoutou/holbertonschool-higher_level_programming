@@ -2,4 +2,5 @@
 
 SELECT score, COUNT(*) AS number
 FROM second_table
-GROUP BY scoreORDER BY NUMBER DESC;
+GROUP BY score
+ORDER BY number DESC;
