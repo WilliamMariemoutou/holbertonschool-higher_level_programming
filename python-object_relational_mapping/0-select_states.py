@@ -1,36 +1,40 @@
 #!/usr/bin/python3
 """
-This script lists all states from the database 'hbtn_0e_0_usa'.
-It takes 3 arguments: MySQL username, MySQL password, and database name.
-It connects to a MySQL server running on localhost at port 3306 and prints all states
-sorted by their 'id' in ascending order.
+Script that lists all states from the database hbtn_0e_0_usa
+taking 3 arguments: mysql username, mysql password and database name
 """
 
-import sys
-import MySQLdb
-
 if __name__ == "__main__":
-    # Get arguments from the command line
-    mysql_username = sys.argv[1]
-    mysql_password = sys.argv[2]
-    database_name = sys.argv[3]
+    import MySQLdb
+    import sys
 
-    # Connect to the MySQL server running on localhost at port 3306
-    db = MySQLdb.connect(host="localhost", port=3306, user=mysql_username, passwd=mysql_password, db=database_name)
+    # Get command line arguments
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
 
-    # Create a cursor object to interact with the database
+    # Connect to MySQL server
+    db = MySQLdb.connect(
+        host="localhost",
+        port=3306,
+        user=username,
+        passwd=password,
+        db=database
+    )
+
+    # Create cursor object
     cursor = db.cursor()
 
-    # Execute query to fetch all states, ordered by id in ascending order
-    cursor.execute("SELECT id, name FROM states ORDER BY id ASC")
+    # Execute query to select all states ordered by id
+    cursor.execute("SELECT * FROM states ORDER BY id ASC")
 
-    # Fetch all rows from the result
-    states = cursor.fetchall()
+    # Fetch all results
+    rows = cursor.fetchall()
 
-    # Print each state in the result set
-    for state in states:
-        print(state)
+    # Display results
+    for row in rows:
+        print(row)
 
-    # Close the cursor and database connection
+    # Close cursor and database connection
     cursor.close()
     db.close()
