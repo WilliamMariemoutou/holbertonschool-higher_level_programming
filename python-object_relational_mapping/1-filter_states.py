@@ -22,17 +22,21 @@ if __name__ == "__main__":
         passwd=password,
         db=database
     )
-    
+
     cur = db.cursor()
 
     # Select states beginning with 'N' (case-sensitive)
-    cur.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC")
-    
-    #fetch and display rows
+    cur.execute(
+        "SELECT * FROM states "
+        "WHERE name LIKE BINARY 'N%' "
+        "ORDER BY id ASC"
+    )
+
+    # fetch and display rows
     rows = cur.fetchall()
     for row in rows:
         print(row)
-        
-    #close cursor and connection
+
+    # lose cursor and connection
     cur.close()
     db.close()
