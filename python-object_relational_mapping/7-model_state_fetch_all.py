@@ -16,7 +16,7 @@ if __name__ == "__main__":
 
     # Create the engine to connect to MySQL
     engine = create_engine(
-        f'mysql+mysqldb://{username}:{password}@localhost/{db_name}', 
+        f'mysql+mysqldb://{username}:{password}@localhost/{db_name}',
         pool_pre_ping=True
     )
 
