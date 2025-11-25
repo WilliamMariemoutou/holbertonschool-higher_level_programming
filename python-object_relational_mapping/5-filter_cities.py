@@ -1,14 +1,16 @@
 #!/usr/bin/python3
-import MySQLdb
-import sys
 
 """
 This script lists all cities of a given state from the database hbtn_0e_4_usa.
-
 Results are displayed in ascending order by city ID.
 """
 
+import MySQLdb
+import sys
+
+
 if __name__ == "__main__":
+
     # Get the command-line arguments
     username = sys.argv[1]
     password = sys.argv[2]
