@@ -9,6 +9,7 @@ from sqlalchemy.ext.declarative import declarative_base
 # Create the base class for declarative models
 Base = declarative_base()
 
+
 class State(Base):
     """ State class that links to the `states` table in the database """
     __tablename__ = 'states'  # Link to the states table
