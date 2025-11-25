@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-Lists all values in the database where the states table mathces the argument    
+Lists all values in the database where the states table mathces the argument
 """
 import MySQLdb
 import sys
@@ -28,7 +28,6 @@ if __name__ == "__main__":
     # Prepare the SQL query to fetch states with a matching name
     cur.execute("SELECT * FROM states WHERE name LIKE BINARY '{}' "
                 "ORDER BY states.id ASC".format(state_name))
-
 
     # Fetch all results
     results = cur.fetchall()
