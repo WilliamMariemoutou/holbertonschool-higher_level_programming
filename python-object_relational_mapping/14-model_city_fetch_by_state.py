@@ -1,36 +1,31 @@
 #!/usr/bin/python3
-"""
-Prints all City objects from the database hbtn_0e_14_usa, sorted by cities.id
-"""
-
+"""Fetch all cities with their state name"""
 import sys
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from model_city import City
+from sqlalchemy.orm import sessionmaker, relationship
 from model_state import Base, State
+from model_city import City
 
 if __name__ == "__main__":
-    # Retrieve command-line arguments
-    username = sys.argv[1]
-    password = sys.argv[2]
-    db_name = sys.argv[3]
+    if len(sys.argv) != 4:
+        sys.exit(1)
 
-    # Create the engine to connect to MySQL
+    user, password, db_name = sys.argv[1], sys.argv[2], sys.argv[3]
+
     engine = create_engine(
-        f'mysql+mysqldb://{username}:{password}@localhost/{db_name}',
+        f'mysql+mysqldb://{user}:{password}@localhost:3306/{db_name}',
         pool_pre_ping=True
     )
 
-    # Create a session to interact with the database
+    Base.metadata.create_all(engine)
+
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    # Query all cities and join with states to get the state name
-    cities = session.query(City, State).join(State).order_by(City.id).all()
+    # Query all cities joined with their state, ordered by city id
+    cities = session.query(City).join(State).order_by(City.id).all()
 
-    # Print each city and its corresponding state in the requested format
-    for city, state in cities:
-        print(f"{state.name}: ({city.id}) {city.name}")
+    for city in cities:
+        print(f"{city.state.name}: ({city.id}) {city.name}")
 
-    # Close the session
     session.close()
