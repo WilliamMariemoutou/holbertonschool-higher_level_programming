@@ -9,14 +9,14 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 if __name__ == "__main__":
-    # Retrieve command-line arguments
-    username = sys.argv[1]
-    password = sys.argv[2]
-    db_name = sys.argv[3]
 
     # Create the engine to connect to MySQL
     engine = create_engine(
-        f'mysql+mysqldb://{username}:{password}@localhost/{db_name}',
+        'mysql+mysqldb://{}:{}@localhost/{}'.format(
+            sys.argv[1],
+            sys.argv[2],
+            sys.argv[3]
+        ),
         pool_pre_ping=True
     )
 
@@ -25,11 +25,11 @@ if __name__ == "__main__":
     session = Session()
 
     # Query the first state, ordered by id
-    state = session.query(State).order_by(State.id).first()
+    first_state = session.query(State).order_by(State.id).first()
 
     # Check if the table is empty
-    if state:
-        print(f"{state.id}: {state.name}")
+    if first_state:
+        print(f"{first_state.id}: {first_state.name}")
     else:
         print("Nothing")
 
