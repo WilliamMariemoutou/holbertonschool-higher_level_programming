@@ -30,24 +30,20 @@ if __name__ == "__main__":
     cur = db.cursor()
 
     # Query to get cities for the given state, ordered by city ID
-    query = """
-        SELECT cities.name
-        FROM cities
-        JOIN states ON cities.state_id = states.id
-        WHERE states.name = %s
-        ORDER BY cities.id ASC
-    """
+    query = (
+        "SELECT cities.name FROM cities "
+        "JOIN states ON cities.state_id = states.id "
+        "WHERE states.name = %s "
+        "ORDER BY cities.id ASC"
+    )
 
-    # Execute the query safely with state_name as parameter
     cur.execute(query, (state_name,))
+    rows = cur.fetchall()
 
-    # Fetch all the results
-    results = cur.fetchall()
+    # Prints the city names
+    cities = [row[0] for row in rows]
 
-    # Print the cities as a comma-separated list
-    if results:
-        print(", ".join(city[0] for city in results))
+    print(", ".join(cities))
 
-    # Close the cursor and the database connection
     cur.close()
     db.close()
