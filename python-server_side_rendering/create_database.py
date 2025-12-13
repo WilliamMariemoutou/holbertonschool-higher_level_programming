@@ -1,16 +1,12 @@
 #!/usr/bin/python3
 import sqlite3
-import os
 
 def create_database():
-    if os.path.exists("products.db"):
-        os.remove("products.db")
-
     conn = sqlite3.connect("products.db")
     cursor = conn.cursor()
 
     cursor.execute("""
-        CREATE TABLE Products (
+        CREATE TABLE IF NOT EXISTS Products (
             id INTEGER PRIMARY KEY,
             name TEXT NOT NULL,
             category TEXT NOT NULL,
@@ -19,7 +15,7 @@ def create_database():
     """)
 
     cursor.execute("""
-        INSERT INTO Products (id, name, category, price)
+        INSERT OR REPLACE INTO Products (id, name, category, price)
         VALUES
         (1, 'Laptop', 'Electronics', 799.99),
         (2, 'Coffee Mug', 'Home Goods', 15.99)
